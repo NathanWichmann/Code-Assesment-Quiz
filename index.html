@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Coding Assesment Quiz</title>
+</head>
+<body>
+<header> 
+    <article class="header">Coding Assesment Quiz</article>
+</header>
+
+<section>
+    <p> Please try and answer the following Questions within the time allowed.</p>
+    <p>Each wrong answer reduces your current time by 15 seconds.</p>
+    <p> Best of luck!!</p>
+</section>
+
+<section>
+    <h3>Time: <span class="time">60</span></h3>
+</section>
+
+<section> 
+    <button id="start-button">Start</button>
+</section>
+
+<section> 
+    <div id="quest"></div>
+    <div id='choices'></div>
+</section>
+<div id="high-score"></div>
+
+<section id="end-screen">
+   <p>Your final score is <span id="final-score"></span>.</p>
+    <h3>Enter initials:<input type="text" id="initials"><button id="save">Submit</button>
+    </h3>
+</section>
+
+
+  <div id="feedback"></div>
+<script src="script.js"></script>
+</body>
+
+
+</html>
