@@ -161,7 +161,7 @@ var lastScore = JSON.parse(localStorage.getItem("initialsScore"));
 function renderLastScore () {
     
     if (lastScore !== null) {
-        document.getElementById("final-score").innerHTML = finalScoreEl.value;
+        document.getElementById("final-score").innerHTML = finalScoreEl;
         document.getElementById("initials").innerHTML = initialEl;
 } else {
     return;
@@ -181,7 +181,7 @@ var highScoreEl = document.getElementById("high-score")
 function saveHighScores() {
     console.log("working")
     var initials = initialsEl.value.trim();
-    //document.getElementById("high-score").style.display="block"
+    document.getElementById("high-score").style.display="block"
     //var initialsEl = document.getElementById("initials")
    // var initials  = localStorage.getItem("initials");
 
