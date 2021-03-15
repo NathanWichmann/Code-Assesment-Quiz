@@ -36,19 +36,23 @@ console.log (questions);
 var secondsLeft = 60;
 // the index of the current question array is set to 0 
 var currentQuestionIndex = 0;
-// this attaches the dom to the start button in the html and the css
+// attaches the html to the javascript and the dom 
 var startButton = document.querySelector("#start-button");
-// this attaches the dom to the start button in the html and the css
+// attaches the html to the javascript and the dom 
 var questionsEl = document.querySelector("#quiz-questions");
 //the old way to attach the dom to html 
 var choicesEl = document.getElementById('choices');
+// attaches the html to the javascript and the dom 
 var timeEl = document.querySelector(".time");
+// attaches the html to the javascript and the dom 
 var saveBtn = document.querySelector("#save");
+//sets the score to 0 
 var score = 0;
+// stops the time when quiz over 
 var timerId;
-
-
+// starts the quiz
 startButton.addEventListener("click", startQuiz)
+// hides the end-screen to the end 
 document.getElementById("end-screen").style.display = "none";
 
 // this function starts the quiz and does console.log working, also connects the timer and the questions together with the start button
@@ -65,13 +69,14 @@ startButton.style.display = 'none';
  getQuestion()
 
 };
-var correct =0;
+
+
 // this function allows the click to happen and be recorded in the consol for verification 
 function choiceClick(){
     console.log('I WAS CLICKED')
     //is the clicking action 
     console.log(this.value)
-        //if the correct answer is clicked with this value shows correct, if wrong answer is clicked alert window shows incorrect
+        // if wrong answer is clicked alert window shows incorrect
         if(this.value !== questions[currentQuestionIndex].answer  ){
             feedback.textContent = "incorrect";
             feedback.style.fontSize = "50px";
@@ -79,7 +84,7 @@ function choiceClick(){
             score = score -5;
             secondsLeft -= 15;
         
-         
+        //if the correct answer is clicked with this value shows correct,
         } else{
             feedback.textContent = "Correct!";
             feedback.style.fontSize = "50px";
@@ -124,7 +129,7 @@ function getQuestion() {
    questEl.textContent = currentQuestion.quest;
     getAnswers()
 };
-
+// time starts and stops with the quiz 
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
@@ -140,13 +145,14 @@ function setTime() {
 
   }, 1000);
 };
+// this partially works, stores initials and score to local storage but doesnt show score on inner.html appears to be global scope issue unable to fix 
 var initialEl = document.getElementById("initials")
 var finalScoreEl = document.getElementById("final-score");
 function saveLastScore() {
     console.log("working")
     var initialsScore = {
         initials: initials.value,
-        score: score.value,
+        score: score,
     };
     localStorage.setItem("initialsScore", JSON.stringify(initialsScore));
     
@@ -155,7 +161,7 @@ var lastScore = JSON.parse(localStorage.getItem("initialsScore"));
 function renderLastScore () {
     
     if (lastScore !== null) {
-        document.getElementById("final-score").innerHTML = finalScoreEl;
+        document.getElementById("final-score").innerHTML = finalScoreEl.value;
         document.getElementById("initials").innerHTML = initialEl;
 } else {
     return;
@@ -167,14 +173,25 @@ saveButton.addEventListener("click", function(event) {
     saveLastScore();
     renderLastScore();
     });
-
     
+   
+
+    document.getElementById("high-score").style.display = "none";
+var highScoreEl = document.getElementById("high-score")
+function saveHighScores() {
+    console.log("working")
+    var initials = initialsEl.value.trim();
+    //document.getElementById("high-score").style.display="block"
+    //var initialsEl = document.getElementById("initials")
+   // var initials  = localStorage.getItem("initials");
 
 
 
+
+}
+
+// end quiz function stops the time, clears the questions, answers and shows the end-screen
 function endQuiz () {
-    
-    
     clearInterval(timerId);
     
     choicesEl.innerHTML = "";
@@ -182,12 +199,7 @@ function endQuiz () {
     feedback.innerHTML= "";
     
     document.getElementById("end-screen").style.display="block"
-
-
-
-    
-
-    // TODO: calculate or grab te score
+ // TODO: calculate or grab te score
     // TODO: ask the user for their name
     // sow them a list of  scoores
     // store the  new score in local storage
