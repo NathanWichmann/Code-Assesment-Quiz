@@ -8,3 +8,16 @@ of prospective job seekers coding abilities. The questions asked are cosing base
 <img src="https://user-images.githubusercontent.com/77902368/111167465-8b52e480-8577-11eb-9c7a-ed3d0d4c5e66.png" alt="Screenshot"> 
 <img src="https://user-images.githubusercontent.com/77902368/111167589-a9b8e000-8577-11eb-90fd-3cf88233a808.png" alt="Screenshot"> 
 <img src="https://user-images.githubusercontent.com/77902368/111167755-cead5300-8577-11eb-975c-645be4e7210b.png" alt="Screenshot">
+
+# Assignment 
+The assignment details are very straight forward. Design a timed coding Quiz that can save highscores so the user can gauge progress compared to their peers. However, the implementation is not. This assignment requires a great deal of javascript and being that this is only a few weeks into the course, it proved to be as dificult as the previous assignment. The obsicle with this assignment was bringing all of the learning together to make this quiz. 
+
+# What I learnt  
+I spent many hours trying to make sense of the assignment. The process took way more time than I thought it would. I would try code and find out errors in the console and try and track down what the errors meant. The console.log is a great tool for finding coding errors, however there has to be an error to use this tool. Sometimes, there was no error to be had but it was clear it wasnt working. Well, I should say I would try to consol.log working and nothing would show. So, it was back to the code. Learning code is extremely time consuming and I am embarrased to admit these assignment take me way to long to do. Functions continue to be an issue, however, after this assignment I understand how to implement them a little better. 
+The terminology and syntax and placing of brackets is becoming more familiar for me. The progress is slow, but there appears to be progress nontheless. 
+
+# Contributions 
+My tutor Joey, got me going in the right direction. 
+Google, github, stackOverFlow. 
+Mark from class looked over my code when I was stuck and helped me with direction.
+
