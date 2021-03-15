@@ -5,6 +5,6 @@ of prospective job seekers coding abilities. The questions asked are cosing base
 
 # Deployed Website Link <a href="https://nathanwichmann.github.io/Code-Assesment-Quiz/">Deployed Website</a> 
 
-<a href="https://user-images.githubusercontent.com/77902368/111167465-8b52e480-8577-11eb-9c7a-ed3d0d4c5e66.png" alt="Screenshot"</a> 
-<a href="https://user-images.githubusercontent.com/77902368/111167589-a9b8e000-8577-11eb-90fd-3cf88233a808.png" alt="Screenshot"</a> 
-<a href="https://user-images.githubusercontent.com/77902368/111167755-cead5300-8577-11eb-975c-645be4e7210b.png" alt="Screenshot"</a>
+<img src="https://user-images.githubusercontent.com/77902368/111167465-8b52e480-8577-11eb-9c7a-ed3d0d4c5e66.png" alt="Screenshot"</a> 
+<img src="https://user-images.githubusercontent.com/77902368/111167589-a9b8e000-8577-11eb-90fd-3cf88233a808.png" alt="Screenshot"</a> 
+<img src="https://user-images.githubusercontent.com/77902368/111167755-cead5300-8577-11eb-975c-645be4e7210b.png" alt="Screenshot"</a>
