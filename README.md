@@ -15,6 +15,9 @@ The assignment details are very straight forward. Design a timed coding Quiz tha
 # What I learnt  
 I spent many hours trying to make sense of the assignment. The process took way more time than I thought it would. I would try code and find out errors in the console and try and track down what the errors meant. The console.log is a great tool for finding coding errors, however there has to be an error to use this tool. Sometimes, there was no error to be had but it was clear it wasnt working. Well, I should say I would try to consol.log working and nothing would show. So, it was back to the code. Learning code is extremely time consuming and I am embarrased to admit these assignment take me way to long to do. Functions continue to be an issue, however, after this assignment I understand how to implement them a little better. 
 The terminology and syntax and placing of brackets is becoming more familiar for me. The progress is slow, but there appears to be progress nontheless. 
+I seem to be own worst enemy when it comes to coding. I was having so much trouble from the very begining with making each div or section have enough room to show its content. 
+It wasnt until I had a session with my tutor that he found out why. I had noticed in class that the instructor had put in a line height of 1.5. I decided to add it tom my body in the css. The only propblem was that I put 1.5px instead of 1.5mm. So everytime I added something to the screen it was smashed into the 1.5px space. I would add padding and margins and try and get the right display but it didnt always wrork but i didnt give up and kept working on making each div but didnt know why until the very end. 
+This was exactly like the form/button issue. I added a form to the html and didnt know at the time i had to stop the default event. 
 
 # Contributions 
 My tutor Joey, got me going in the right direction. 
