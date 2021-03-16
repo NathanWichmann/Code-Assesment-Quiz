@@ -54,6 +54,13 @@ var timerId;
 startButton.addEventListener("click", startQuiz)
 // hides the end-screen to the end 
 document.getElementById("end-screen").style.display = "none";
+//Get highscores from local Storage
+var highscoresArr = JSON.parse(localStorage.getItem('highscores')) || [];
+
+var highscoreList = document.getElementById('listScore');
+
+
+
 
 // this function starts the quiz and does console.log working, also connects the timer and the questions together with the start button
 function startQuiz() {
@@ -148,26 +155,55 @@ function setTime() {
 // this partially works, stores initials and score to local storage but doesnt show score on inner.html appears to be global scope issue unable to fix 
 var initialEl = document.getElementById("initials")
 var finalScoreEl = document.getElementById("final-score");
+
 function saveLastScore() {
     console.log("working")
     var initialsScore = {
         initials: initials.value,
-        score: score,
+        score: score
     };
-    localStorage.setItem("initialsScore", JSON.stringify(initialsScore));
+    console.log(initialsScore)
+
+    highscoresArr.push(initialsScore)
+
+    localStorage.setItem("highscores", JSON.stringify(highscoresArr));
     
+};
+
+//render highscores
+function renderHighscores(){
+    var highscoreDiv = document.getElementById('high-score')
+    highscoreDiv.style.display = 'block';
+    for (let i = 0; i < highscoresArr.length; i++) {
+      console.log('HS', highscoresArr[i])
+      var item = document.createElement('li');
+
+      item.textContent = highscoresArr[i].initials + ' . ' + highscoresArr[i].score;
+      highscoreList.append(item);
+
+    }
 }
+
+
+
+
+
+
+
 var lastScore = JSON.parse(localStorage.getItem("initialsScore"));
+
 function renderLastScore () {
-    
+    console.log('LA', lastScore)
+
     if (lastScore !== null) {
-        document.getElementById("final-score").innerHTML = finalScoreEl;
-        document.getElementById("initials").innerHTML = initialEl;
-} else {
-    return;
-  }
-}
+        document.getElementById("final-score").innerHTML = lastScore.score;
+        document.getElementById("initials").innerHTML = lastScore.initials;
+        renderHighscores();
+} 
+};
+
 var saveButton = document.getElementById("save");
+
 saveButton.addEventListener("click", function(event) {
     event.preventDefault();
     saveLastScore();
@@ -177,18 +213,15 @@ saveButton.addEventListener("click", function(event) {
    
 
     document.getElementById("high-score").style.display = "none";
-var highScoreEl = document.getElementById("high-score")
+var highScoreEl = document.getElementById("high-score");
+
 function saveHighScores() {
     console.log("working")
     var initials = initialsEl.value.trim();
     document.getElementById("high-score").style.display="block"
     //var initialsEl = document.getElementById("initials")
    // var initials  = localStorage.getItem("initials");
-
-
-
-
-}
+};
 
 // end quiz function stops the time, clears the questions, answers and shows the end-screen
 function endQuiz () {
@@ -198,7 +231,9 @@ function endQuiz () {
     quest.innerHTML = "";
     feedback.innerHTML= "";
     
-    document.getElementById("end-screen").style.display="block"
+    document.getElementById("end-screen").style.display="block";
+    document.getElementById("final-score").innerHTML = lastScore.score;
+
  // TODO: calculate or grab te score
     // TODO: ask the user for their name
     // sow them a list of  scoores

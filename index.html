@@ -11,32 +11,38 @@
 <header> 
     <article class="header">Coding Assesment Quiz</article>
 </header>
-
-<section>
+<div>
     <p> Please try and answer the following Questions within the time allowed.</p>
     <p>Each wrong answer reduces your current time by 15 seconds.</p>
     <p> Best of luck!!</p>
-</section>
+</div>
 
-<section>
+
+
     <h3>Time: <span class="time">60</span></h3>
-</section>
 
-<section> 
+
+
     <button id="start-button">Start</button>
-</section>
+
 
 <section> 
     <div id="quest"></div>
     <div id='choices'></div>
 </section>
-<div id="high-score"></div>
 
-<section id="end-screen">
+
+
+<div id="end-screen">
    <p>Your final score is <span id="final-score"></span>.</p>
-    <h3>Enter initials:<input type="text" id="initials"><button id="save">Submit</button>
-    </h3>
-</section>
+   <div>
+        <h3>Enter initials:</h3><input type="text" id="initials" /><button id="save">Submit</button>
+    </div>
+    
+    <div id="high-score">
+        <ul id='listScore'></ul>
+    </div>
+</div>
 
 
   <div id="feedback"></div>
