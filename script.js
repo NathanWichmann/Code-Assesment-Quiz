@@ -45,7 +45,7 @@ var choicesEl = document.getElementById('choices');
 // attaches the html to the javascript and the dom 
 var timeEl = document.querySelector(".time");
 // attaches the html to the javascript and the dom 
-var saveBtn = document.querySelector("#save");
+var saveBtn = document.querySelector("save");
 //sets the score to 0 
 var score = 0;
 // stops the time when quiz over 
@@ -55,16 +55,23 @@ startButton.addEventListener("click", startQuiz)
 // hides the end-screen to the end 
 document.getElementById("end-screen").style.display = "none";
 //Get highscores from local Storage
-var highscoresArr = JSON.parse(localStorage.getItem('highscores')) || [];
-
 var highscoreList = document.getElementById('listScore');
+//conects the feedback to the html 
+var feedback = document.getElementById("feedback")
+//sets the highscores array to the local storage or an empty one
+var highscoresArr = JSON.parse(localStorage.getItem('highscores')) || [];
+//gets the listcore element 
+var highscoreList = document.getElementById('listScore');
+//gets the initials element
+var initialEl = document.getElementById("initials");
+//gets the final score element 
+var finalScoreEl = document.getElementById("final-score");
 
-
-
+console.log(feedback)
 
 // this function starts the quiz and does console.log working, also connects the timer and the questions together with the start button
 function startQuiz() {
-    console.log('working')
+    // console.log('working')
   //  questScreen.setAttribute();
 //hide start btn
 startButton.style.display = 'none';
@@ -80,12 +87,13 @@ startButton.style.display = 'none';
 
 // this function allows the click to happen and be recorded in the consol for verification 
 function choiceClick(){
-    console.log('I WAS CLICKED')
+    // console.log('I WAS CLICKED')
     //is the clicking action 
     console.log(this.value)
+
         // if wrong answer is clicked alert window shows incorrect
         if(this.value !== questions[currentQuestionIndex].answer  ){
-            feedback.textContent = "incorrect";
+            feedback.innerText = "incorrect";
             feedback.style.fontSize = "50px";
             feedback.style.color= "red"
             score = score -5;
@@ -93,15 +101,15 @@ function choiceClick(){
         
         //if the correct answer is clicked with this value shows correct,
         } else{
-            feedback.textContent = "Correct!";
+            feedback.innerText = "Correct!";
             feedback.style.fontSize = "50px";
             feedback.style.color= "green";
             score = score +5;
-            
+            document.getElementById("feedback").style.display = "block";
 
         }
     
-
+        document.getElementById("feedback").style.display = "block";
     //moves on to the next question
     currentQuestionIndex++;
     // when the array is finsished end game, if not get next question
@@ -136,7 +144,7 @@ function getQuestion() {
    questEl.textContent = currentQuestion.quest;
     getAnswers()
 };
-// time starts and stops with the quiz 
+// time starts and stops with the quiz and shows seconds left on the screen after it starts
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
@@ -152,10 +160,7 @@ function setTime() {
 
   }, 1000);
 };
-// this partially works, stores initials and score to local storage but doesnt show score on inner.html appears to be global scope issue unable to fix 
-var initialEl = document.getElementById("initials")
-var finalScoreEl = document.getElementById("final-score");
-
+//stores initials and score to local storage 
 function saveLastScore() {
     console.log("working")
     var initialsScore = {
@@ -163,6 +168,9 @@ function saveLastScore() {
         score: score
     };
     console.log(initialsScore)
+    localStorage.setItem("initialsscore", JSON.stringify(initialsScore));
+    
+    console.log(highscoresArr)
 
     highscoresArr.push(initialsScore)
 
@@ -170,60 +178,24 @@ function saveLastScore() {
     
 };
 
-//render highscores
+//render highscores 
 function renderHighscores(){
     var highscoreDiv = document.getElementById('high-score')
     highscoreDiv.style.display = 'block';
+   
+       
+    
     for (let i = 0; i < highscoresArr.length; i++) {
       console.log('HS', highscoresArr[i])
       var item = document.createElement('li');
+      
 
       item.textContent = highscoresArr[i].initials + ' . ' + highscoresArr[i].score;
       highscoreList.append(item);
-
+      
     }
 }
-
-
-
-
-
-
-
-var lastScore = JSON.parse(localStorage.getItem("initialsScore"));
-
-function renderLastScore () {
-    console.log('LA', lastScore)
-
-    if (lastScore !== null) {
-        document.getElementById("final-score").innerHTML = lastScore.score;
-        document.getElementById("initials").innerHTML = lastScore.initials;
-        renderHighscores();
-} 
-};
-
-var saveButton = document.getElementById("save");
-
-saveButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    saveLastScore();
-    renderLastScore();
-    });
-    
-   
-
-    document.getElementById("high-score").style.display = "none";
-var highScoreEl = document.getElementById("high-score");
-
-function saveHighScores() {
-    console.log("working")
-    var initials = initialsEl.value.trim();
-    document.getElementById("high-score").style.display="block"
-    //var initialsEl = document.getElementById("initials")
-   // var initials  = localStorage.getItem("initials");
-};
-
-// end quiz function stops the time, clears the questions, answers and shows the end-screen
+// ends the quiz and clears the screen and shows the end-screen and score 
 function endQuiz () {
     clearInterval(timerId);
     
@@ -232,19 +204,30 @@ function endQuiz () {
     feedback.innerHTML= "";
     
     document.getElementById("end-screen").style.display="block";
-    document.getElementById("final-score").innerHTML = lastScore.score;
+    document.getElementById("final-score").innerText = score;
 
- // TODO: calculate or grab te score
-    // TODO: ask the user for their name
-    // sow them a list of  scoores
-    // store the  new score in local storage
-    
+   
 }
 
 
+
+var saveButton = document.getElementById("save");
+//creates the event listener for save button and stops the default, saveLastSCORE and render highscores is called 
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    saveLastScore();
+    renderHighscores();
+    });
     
-    
-    startButton.addEventListener("click", startQuiz)
+   
+    //stops the display of high scores until called 
+    document.getElementById("high-score").style.display = "none";
+    //creates highscoreel and attactes to highscore in the html 
+var highScoreEl = document.getElementById("high-score");
+
+
+// end quiz function stops the time, clears the questions, answers and shows the end-screen
+     startButton.addEventListener("click", startQuiz)
 
 
 

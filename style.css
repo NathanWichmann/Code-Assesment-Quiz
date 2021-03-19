@@ -12,12 +12,12 @@
   html{
     height: 100%;
   }
-    h3 {
-  float: right;
+    /* h3 {
+  float: left;
     padding:2%;
   
   }
-   
+    */
   header {
     display: flex;
     justify-content: center;
@@ -40,9 +40,10 @@
 
 
   #start-button {
+    float: center;
     text-align: center;
-    padding: 2%;
-    margin:2%;
+    padding: 1%;
+    margin:1%;
     font-size: 20px;
     background-color: #13293d;
     color: #fff;
@@ -51,8 +52,8 @@
     
   #quest {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+   
     padding: 1%;
     margin:2%;
     font-size: 25px;
@@ -61,26 +62,22 @@
   }
   .answers {
     padding: 1%;
-    margin:2%;
+    margin:1%;
     font-size: 22%px;
     background-color: #13293d;
     color: #fff;
   }
 
-    
- form { 
-  text-align: center;
-  padding:1%; 
-  background-color: #13293d;
-  color: #fff;
-
- }
  #high-score {
    display: none;
-  color: #fff;
-  height: 250px;
+   padding: 1%;
+    margin:1%;
+   
+   color:black;
   
  }
-
+/* #feedback { 
+  display: none; 
+} */
 
  
