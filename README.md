@@ -23,4 +23,5 @@ This was exactly like the form/button issue. I added a form to the html and didn
 My tutor Joey, got me going in the right direction. 
 Google, github, stackOverFlow. 
 Mark from class looked over my code when I was stuck and helped me with direction.
+Adam my instructor helped connect it at the end. 
 
